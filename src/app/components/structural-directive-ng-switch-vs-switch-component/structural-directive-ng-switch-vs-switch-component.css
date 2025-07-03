@@ -1,0 +1,12 @@
+.box{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+ .box div{
+    margin-bottom: 5px;
+ }
+  .box div button{
+    margin-left: 5px;
+ }

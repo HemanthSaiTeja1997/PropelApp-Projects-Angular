@@ -1,0 +1,19 @@
+<div class="box">
+    <p>attribute-directive works!</p>
+    <div>
+        <h2 [ngClass]="textColor">This is ngclass Attribute</h2>
+        <button (click)="onChange('blue')">Change-Blue</button>
+        <button (click)="onChange('red')">Change-Red</button>
+
+
+    </div>
+
+        <div>
+        <h2 [ngStyle]="{'color':stylecolor}">This is ngstyle Attribute</h2>
+        <button (click)="onupdate('purple')">Change-purple</button>
+        <button (click)="onupdate('pink')">Change-pink</button>
+
+
+    </div>
+
+</div>

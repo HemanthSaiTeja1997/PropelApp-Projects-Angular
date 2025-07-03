@@ -1,0 +1,25 @@
+<div class="box">
+    <p>structural-directive-ng-switch-vs-switch-component works!</p>
+    <div>
+        <button style="background-color: green; border-radius: 4px;" (click)="set(1)">Grade-1</button>
+        <button style="background-color: purple; border-radius: 4px" (click)="set(2)">Grade-2</button>
+        <button style="background-color: orange; border-radius: 4px" (click)="set(3)">Grade-3</button>
+    </div>
+    <div [ngSwitch]="grade">
+        <h4 *ngSwitchCase="1">Congratulation on your outstanding achievements-1st Class</h4>
+        <h4 *ngSwitchCase="2">Congratulation on your achievements-Second class </h4>
+        <h4 *ngSwitchCase="3">Congratulation on your achievements-Third class</h4>
+
+    </div>
+     <h2>Using Switch statement </h2>
+    <div>
+       
+        @switch (grade) {
+            @case (1) {Congratulation on your outstanding achievements-1st Class}
+            @case (2) {Congratulation on your achievements-Second class }
+            @case (3) {Congratulation on your achievements-Third class}
+
+        }
+    </div>
+
+</div>

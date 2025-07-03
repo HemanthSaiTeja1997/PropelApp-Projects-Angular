@@ -1,0 +1,43 @@
+<div class="box">
+  <table class="tablebox">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>update</th>
+        <th>View</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let user of UserData
+            | paginate : { itemsPerPage: 10, currentPage: page }
+        "
+      >
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class="btn-update" (click)="updateUser(user.id)">
+            Update
+          </button>
+        </td>
+        <td>
+          <button class="btn-view" (click)="onview(user.id)">View</button>
+        </td>
+        <td>
+          <button class="btn-delete" (click)="ondelete(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button class="btn" (click)="addNewUser()">Add New User</button>
+  </div>
+</div>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>

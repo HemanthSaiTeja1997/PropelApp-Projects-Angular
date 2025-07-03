@@ -1,0 +1,10 @@
+<div>
+    <h2>sibling2</h2>
+    <div>
+        <h2>{{sibling1Property}}</h2>
+    </div>
+    <div>
+        <input type="text" #sibling2>
+        <button (click)="onsend(sibling2.value)">Submit</button>
+    </div>
+</div>

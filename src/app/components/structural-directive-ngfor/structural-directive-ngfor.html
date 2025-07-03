@@ -1,0 +1,79 @@
+
+<div class="box">
+<h1>structural-directive-ngfor works!</h1>
+<div>
+    <select name="" id="">
+        <option [value]="e.empNumber" *ngFor="let e of employees">
+                {{e.empName}} -{{e.empEmail}}
+        </option>
+    
+    </select>
+</div>
+<table class="tablebox">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of employees">
+            <td>{{e.empNumber}}</td>
+            <td>{{e.empName}}</td>
+            <td>{{e.empEmail}}</td>
+
+        </tr>
+    </tbody>
+</table>
+<div>
+    <ul>
+        <li *ngFor="let c of company">{{c}}</li>
+    </ul>
+</div>
+</div>
+
+
+<div class="box">
+<h1>structural-directive--&#64;for() works!</h1>
+<div>
+    <select name="" id="">
+        @for(e of employees;track e){
+   <option [value]="e.empNumber">
+                {{e.empName}} -{{e.empEmail}}
+        </option>
+        }  
+    </select>
+</div>
+<table class="tablebox">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            </tr>
+    </thead>
+    <tbody>
+        @for(e of employees; track e){
+        <tr>
+            <td>{{e.empNumber}}</td>
+            <td>{{e.empName}}</td>
+            <td>{{e.empEmail}}</td>
+
+        </tr>
+        }
+       
+    </tbody>
+</table>
+<div>
+    <ul>
+        @for(c of company;track c;let f=$first;let l=$last){
+            @if(f){<li style="color: green;">{{c}}</li>}
+            @else if (l) {<li style="color: red;">{{c}}</li>}
+            @else{<li>{{c}}</li>}
+        }
+        @empty {No items are presnt in the array }
+    </ul>
+</div>
+</div>
+

@@ -1,0 +1,13 @@
+.horizontal-list {
+  display: flex;
+  list-style: none; /* removes default bullets */
+  padding: 0;
+  margin: 0;
+  gap: 20px; /* optional: spacing between items */
+}
+
+.active{
+  font-weight:  bolder;
+  font-family: 'Courier New', Courier, monospace;
+  color: olivedrab;
+}

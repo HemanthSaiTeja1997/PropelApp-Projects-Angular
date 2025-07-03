@@ -1,0 +1,29 @@
+<div class="box">
+    <h1>Component Communication Parent to child /child to Parent</h1>
+</div>
+<div class="container">
+    <div>
+        <h2>Parent Component</h2>
+        <h2>{{receiveMessage}}</h2>
+    </div>
+    <div>
+        <app-child [childInputProperty]="parentInputProperty" (childOutputProperty)="receiveData($event)"></app-child>
+    </div>
+</div>
+
+<div class="box">
+
+    <div class="container">
+        <div>
+            <app-sibling1 (sibling1Event)="receiveEvent1($event)" [sibling2Property]="sibling2Data"></app-sibling1>
+        </div>
+        <div>
+            <app-sibling2 [sibling1Property]="sibling1Data" (sibling2Event)="receiveEvent2($event)"></app-sibling2>
+        </div>
+    </div>
+
+    <div class="box">
+        <div>
+           
+        </div>
+    </div>

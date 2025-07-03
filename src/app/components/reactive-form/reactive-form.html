@@ -1,0 +1,113 @@
+<div class="box">
+  <div>
+    <h1>Reactive-Forms</h1>
+  </div>
+  <div>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>First Name</label>
+        <input
+          type="text"
+          placeholder="Enter FirstName"
+          formControlName="firstName"
+          required
+        />
+        @if((reactiveForm.controls['firstName'].dirty || reactiveForm.controls['firstName'].touched)){
+            @if(reactiveForm.controls['firstName'].errors?.['required']){
+                <small style="color: rgb(236, 41, 41);">First Name is Required</small>
+            }
+             @if(reactiveForm.controls['firstName'].errors?.['pattern']){
+                <small style="color: rgb(236, 41, 41);">First Name does not match pattern</small>
+            }
+
+        }
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          placeholder="Enter LastName"
+          formControlName="lastName"
+        />
+        @if((reactiveForm.controls['lastName'].dirty || reactiveForm.controls['lastName'].touched)){
+            @if(reactiveForm.controls['lastName'].errors?.['required']){
+                <small style="color: rgb(236, 41, 41);">Last Name is Required</small>
+            }
+        }
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="Enter Email" formControlName="email" />
+        @if((reactiveForm.controls['email'].dirty || reactiveForm.controls['email'].touched)){
+            @if(reactiveForm.controls['email'].errors?.['required']){
+                <small style="color: rgb(236, 41, 41);">Email is Required</small>
+            }
+             @if(reactiveForm.controls['email'].errors?.['minLength']){
+                <small style="color: rgb(236, 41, 41);">The minimum Length should be 10</small>
+            }
+             @if(reactiveForm.controls['email'].errors?.['email']){
+                <small style="color: rgb(236, 41, 41);">Please Enter Valid Email</small>
+            }
+        }
+      </div>
+      <div>
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
+         @if((reactiveForm.controls['password'].dirty || reactiveForm.controls['password'].touched)){
+            @if(reactiveForm.controls['password'].errors?.['required']){
+                <small style="color: rgb(236, 41, 41);">Password is Required</small>
+            }
+        }
+      </div>
+      <div formGroupName="address">
+        <h5>Address</h5>
+        <div>
+        <label>City</label>
+        <input type="text" formControlName="city" />
+      </div>
+       <div>
+        <label>Street</label>
+        <input type="text" formControlName="Street" />
+      </div>
+             <div>
+        <label>Pincode</label>
+        <input type="number" formControlName="pincode" />
+      </div>
+      </div>
+       <div formArrayName="skills">
+     <button (click)="addSkill()">AddSkill</button>
+     <div>
+        @for (skill of skills.controls; track skill;let i=$index) {
+            <div [formGroupName]="i">
+                {{i+1}} Skill Name : <input type="text" formControlName="skill">
+                <button (click)="deleteSkill(i)">Delete</button>
+            </div>
+        }
+     </div>
+      </div>
+      <div>
+        <label>Check Me Out</label>
+        <input type="checkbox" formControlName="isChecked" />
+      </div>
+      <div class="btn-container">
+
+          <div>
+              <button type="submit" [disabled]="reactiveForm.invalid">Submit</button>
+            </div>
+            <div>
+                <button class="btn" (click)="setAllValue()">SetAllValue</button>
+            </div>
+             <div>
+                <button class="btn-patch" (click)="setPatchValue()">SetPatchValue</button>
+            </div>
+            <div>
+                <button class="btn-reset" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div>
+    <h2>1.upperCase Pipe--{{sampleText | uppercase}}</h2>
+    <h2>2.LowerCase Pipe--{{sampleText | lowercase}}</h2>
+    <h2>3.TitleCase Pipe--{{sampleText | titlecase}}</h2>
+    <h2>4.Slice Pipe(4,8) prints from 4 to 8 index --{{sampleText | slice: 4:8}}</h2>
+    <h2>5.Slice Pipe(4) print from 4 to last index --{{sampleText | slice: 4}}</h2>
+    <h2>6.Slice Pipe(4,-10) print from 4 to 10 index from last --{{sampleText | slice: 4:-10}}</h2>
+    <h2>7.Slice Pipe(-10) print only 10 indexs from end index --{{sampleText | slice: -10}}</h2>
+    <h2>8.Slice Pipe(1,-5)--{{[1,2,3,4,5,6,7,8,9,10] | slice: 1:-5}}</h2>
+    <h2>9.JsonPipe--{{personData | json}}</h2>
+    <pre>You can use pre tag for printing the Json object--{{personData | json}} </pre>
+
+    <h3>Date : {{currentDate}}</h3>
+    <h3>Date with date pipe  : {{currentDate | date}}</h3>
+    <h3>Date with date pipe with short argument : {{currentDate | date:'short'}}</h3>
+    <h3>Date with date pipe with shortDate argument : {{currentDate | date:'shortDate'}}</h3>
+    <h3>Date with date pipe with shortTime argument : {{currentDate | date:'shortTime'}}</h3>
+    <h3>Date with date pipe with medium argument : {{currentDate | date:'medium'}}</h3>
+    <h3>Date with date pipe with mediumTime argument : {{currentDate | date:'mediumTime'}}</h3>
+    <h3>Date with date pipe with mediumDate argument : {{currentDate | date:'mediumDate'}}</h3>
+    <h3>Decimal Pipe with 1 digit before and 1 after decimal : {{3.12345 | number: '1.1-1'}} </h3>
+    <h3>Decimal Pipe with 1 digit before and 3 after decimal : {{3.12345 | number: '1.3'}} </h3>
+    <h3>Decimal Pipe with 2 digit before and 3 after decimal : {{3.12345 | number: '2.3'}} </h3>
+    <h3>Percent Pipe --{{0.25 | percent}}</h3>
+    <h3>Currency Pipe --{{153.023 | currency:'₹'}}</h3>
+    <h3>Async pipe helps if we have data which need to subscribe to observable  </h3>
+    <h4>
+        <ul>
+            @for(i of items|async;track i){
+                <li>{{i}}</li>
+            }
+        </ul>
+    </h4>
+    <h1>Custom Pipe for adding +91 to the mobile Number -- {{mobileNumber | custompipe}}</h1>
+    <h1>Pure Pipe -square of 5-- {{5 | purepipe}}</h1>
+    <h1>ImPure Pipe -Time is changing on ever page load-- {{currentDate | impurepipe}}</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

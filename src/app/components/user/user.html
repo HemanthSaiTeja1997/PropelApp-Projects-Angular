@@ -1,0 +1,64 @@
+<div>
+<li>Name : {{dummyData.name}}</li>
+<li>Age : {{dummyData.age}}</li>
+<li>Email : {{dummyData.email}}</li>
+
+</div>
+<div>
+    <table class="tablebox">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            </tr>
+    </thead>
+    <tbody>
+        @for(e of empDummy; track e){
+        <tr>
+            <td>{{e.empNumber}}</td>
+            <td>{{e.empName}}</td>
+            <td>{{e.empEmail}}</td>
+
+        </tr>
+        }
+       
+    </tbody>
+</table>
+</div>
+<div>
+    <div>
+    <label for="">Username</label>
+    <input type="text">
+</div>
+<div>
+    <label for="">Password</label>
+    <input type="password">
+</div>
+<div>
+    <button (click)="Login()">Login</button>
+</div>
+<div>
+    <h2>Uisng JsonPlaceholder Api for getting data </h2>
+    <table class="tablebox">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            </tr>
+    </thead>
+    <tbody>
+        @for(data of apiData; track data){
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+
+        </tr>
+        }
+       
+    </tbody>
+</table>
+</div>
+</div>

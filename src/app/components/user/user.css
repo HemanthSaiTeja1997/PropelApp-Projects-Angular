@@ -1,0 +1,12 @@
+.tablebox {
+    border: 2px solid black;
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    margin: 0 auto; /* Horizontally center the table */
+    text-align: center; /* Center text inside cells */
+}
+
+.tablebox th,
+.tablebox td {
+    border: 1px solid black;
+    padding: 8px 12px;
+}
