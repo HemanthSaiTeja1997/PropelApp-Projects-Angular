@@ -1,4 +1,4 @@
-<div class="box">
+ <div class="box">
   <div class="search-box">
   <input
     type="text"
@@ -6,8 +6,14 @@
     [(ngModel)]="searchTerm"
   />
 </div>
-
-  <table class="tablebox">
+<div
+    class="scroll-container"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="loadMoreUsers()"
+  >
+  <table class="tablebox" >
     <thead>
       <tr>
         <th>Id</th>
@@ -24,7 +30,7 @@
         *ngFor="
           let user of UserData
           | searchUserPipe : searchTerm
-            | paginate : { itemsPerPage: 10, currentPage: page }
+        
         "
       >
         <td>{{ user.id }}</td>
@@ -45,9 +51,10 @@
       </tr>
     </tbody>
   </table>
+</div>
   <div>
     <button class="btn" (click)="addNewUser()">Add New User</button>
   </div>
-</div>
-<pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div> 
+
 

@@ -21,15 +21,15 @@ export class ViewUser implements OnInit {
   };
   ngOnInit(): void {
     this.userId = {
-      uid: this.activeRoute.snapshot.params['id'],
+      uid: +this.activeRoute.snapshot.params['id'],
     };
     this.crud
-      .getUserById(this.userId.uid)
+      .request<any>('GET', `/${this.userId.uid}`)
       .pipe(take(1))
       .subscribe({
         next: (res) => {
           this.userData = res;
-        },
+        }
       });
   }
   onclose() {

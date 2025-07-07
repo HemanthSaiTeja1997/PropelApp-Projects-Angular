@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedDataService {
+  title=signal<string>(environment.displayName)
+
   API_URL="https://jsonplaceholder.typicode.com/users";
 
   constructor( private _http:HttpClient) { }

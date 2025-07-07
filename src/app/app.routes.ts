@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { PracticeRxjs } from './components/practice-rxjs/practice-rxjs';
+import { VirtualScrolling } from './CRUDProject/virtual-scrolling/virtual-scrolling';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'choose', pathMatch: 'full' },
@@ -9,6 +11,35 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./components/home/home').then((m) => m.Home),
+    children: [
+      {
+        path: 'if',
+        loadComponent: () =>
+          import(
+            './components/home/structural-directive/structural-directive'
+          ).then((m) => m.StructuralDirective),
+      },
+      {
+        path: 'for',
+        loadComponent: () =>
+          import(
+            './components/home/structural-directive-ngfor/structural-directive-ngfor'
+          ).then((m) => m.StructuralDirectiveNgfor),
+      },
+      {
+        path: 'switch',
+        loadComponent: () =>
+          import(
+            './components/home/structural-directive-ng-switch-vs-switch-component/structural-directive-ng-switch-vs-switch-component'
+          ).then((m) => m.StructuralDirectiveNgSwitchVsSwitchComponent),
+      },
+      { path: '', redirectTo: 'if', pathMatch: 'full' },
+    ],
+  },
+  {
+    path: 'subject',
+    loadComponent: () =>
+      import('./components/subject/subject').then((m) => m.Subject),
   },
   {
     path: 'choose',
@@ -19,27 +50,6 @@ export const routes: Routes = [
     path: 'parent',
     loadComponent: () =>
       import('./components/parent/parent').then((m) => m.Parent),
-  },
-  {
-    path: 'if',
-    loadComponent: () =>
-      import('./components/structural-directive/structural-directive').then(
-        (m) => m.StructuralDirective
-      ),
-  },
-  {
-    path: 'for',
-    loadComponent: () =>
-      import(
-        './components/structural-directive-ngfor/structural-directive-ngfor'
-      ).then((m) => m.StructuralDirectiveNgfor),
-  },
-  {
-    path: 'switch',
-    loadComponent: () =>
-      import(
-        './components/structural-directive-ng-switch-vs-switch-component/structural-directive-ng-switch-vs-switch-component'
-      ).then((m) => m.StructuralDirectiveNgSwitchVsSwitchComponent),
   },
   {
     path: 'attribute',
@@ -73,6 +83,11 @@ export const routes: Routes = [
     path: 'crud',
     loadComponent: () => import('./CRUDProject/crud/crud').then((m) => m.CRUD),
   },
+       {
+
+      path:'infintescrolling',
+      loadComponent:()=> import('./CRUDProject/view-users-infinite-scrolling/view-users-infinite-scrolling').then((m)=>m.ViewUsersInfiniteScrolling)
+    },
   {
     path: 'adduser',
     loadComponent: () =>
@@ -87,6 +102,16 @@ export const routes: Routes = [
     path: 'updateuser/:id',
     loadComponent: () =>
       import('./CRUDProject/update-user/update-user').then((m) => m.UpdateUser),
+  },
+    {
+    path: 'rxjs',
+    loadComponent: () =>
+      import('./components/practice-rxjs/practice-rxjs').then((m) =>PracticeRxjs ),
+  },
+      {
+    path: 'virtual',
+    loadComponent: () =>
+      import('./CRUDProject/virtual-scrolling/virtual-scrolling').then((m) =>VirtualScrolling ),
   },
   {
     path: '**',

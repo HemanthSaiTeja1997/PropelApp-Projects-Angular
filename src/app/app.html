@@ -1,69 +1,49 @@
-<!-- <app-user></app-user>
-<app-home></app-home> -->
-<!-- <app-structural-directive></app-structural-directive> -->
-<!-- <app-structural-directive-ngfor></app-structural-directive-ngfor> -->
-<!-- <app-structural-directive-ng-switch-vs-switch-component></app-structural-directive-ng-switch-vs-switch-component> -->
-<!-- <app-attribute-directive></app-attribute-directive> -->
- <!-- <div >
+<div class="main-container">
+  <div class="container-left">
     <ul class="horizontal-list">
-
-        <li>
-            <a href="/User">User</a>
-        </li>
-        <li>
-            <a href="/home">Home</a>
-        </li> 
-            <li>
-            <a href="/if">&#64;If()</a>
-        </li> 
-            <li>
-            <a href="/for">&#64;for()</a>
-        </li> 
-            <li>
-            <a href="/switch">&#64;swith()</a>
-        </li> 
-            <li>
-            <a href="/attribute">ngclass/style</a>
-    
-    </ul>
- </div> -->
- <div >
-    <ul class="horizontal-list">
-
-        <li>
-            <a routerLinkActive="active" routerLink="/User">User</a>
-        </li>
-            <li>
-            <a routerLinkActive="active" routerLink="/parent">Parent-Child</a>
-        </li>
-             <li>
-            <a routerLinkActive="active" routerLink="/signal">Signal</a>
-        </li>
-        <li>
-            <a routerLinkActive="active" routerLink="/home">Home</a>
-        </li> 
-            <li>
-            <a routerLinkActive="active" routerLink="/if">&#64;If()</a>
-        </li> 
-            <li>
-            <a routerLinkActive="active" routerLink="/for">&#64;for()</a>
-        </li> 
-            <li>
-            <a routerLinkActive="active" routerLink="/switch">&#64;swith()</a>
-        </li> 
-         <li>
-            <a routerLinkActive="active" routerLink="/bpipes">Built-in-Pipe</a>
-        </li> 
-            <li>
-            <a routerLinkActive="active" routerLink="/attribute">ngclass/style</a>
-     </li> 
-       <li>
-            <a routerLinkActive="active" routerLink="/rf">Reactive-Form</a>
-     </li> 
       <li>
-            <a routerLinkActive="active" routerLink="/crud">CRUD</a>
-     </li> 
+        <a routerLinkActive="active" routerLink="/User">User</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/parent">Parent-Child</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/signal">Signal</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/home">Home</a>->
+        <a routerLink="/home/if" routerLinkActive="active">If</a> &nbsp;
+        <a routerLink="/home/for" routerLinkActive="active">For</a> &nbsp;
+        <a routerLink="/home/switch" routerLinkActive="active">Switch</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/bpipes">Built-in-Pipe</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/attribute">ngclass/style</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/rf">Reactive-Form</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/crud">CRUD</a> &nbsp;
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/infintescrolling">InfiniteScrolling</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/virtual">VirtualScrolling</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/subject">Subject</a>
+      </li>
+         <li>
+        <a routerLinkActive="active" routerLink="/rxjs">Rxjs</a>
+      </li>
+              
     </ul>
- </div>
-
- <router-outlet></router-outlet>
+  </div>
+  <div class="container-right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Crudservice } from '../../Services/crudservice';
+import { Iuser } from '../../Interface/iuser';
 
 @Component({
   selector: 'app-add-user',
@@ -23,14 +24,11 @@ export class AddUser {
     });
   }
   onSubmit() {
-    console.log(this.addUserForm.value);
-    this.crud.postData(this.addUserForm.value).subscribe({
-      next: (res) => {
+    // console.log(this.addUserForm.value);
+    this.crud.request<Iuser>('POST', '/', this.addUserForm.value).subscribe({
+      next: () => {
         this.route.navigateByUrl('crud');
-      },
-      error: (error) => {
-        console.error(error);
-      },
+      }
     });
   }
 

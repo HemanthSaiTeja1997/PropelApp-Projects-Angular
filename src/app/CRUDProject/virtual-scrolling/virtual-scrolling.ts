@@ -1,21 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Crudservice } from '../../Services/crudservice';
+import { Component } from '@angular/core';
 import { Iuser } from '../../Interface/iuser';
-import { Router, RouterOutlet } from '@angular/router';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { CommonModule } from '@angular/common';
+import { Crudservice } from '../../Services/crudservice';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { SearchUserPipePipe } from '../../Pipes/search-user-pipe-pipe';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
-  selector: 'app-crud',
-  imports: [NgxPaginationModule, CommonModule, FormsModule, SearchUserPipePipe],
-  templateUrl: './crud.html',
-  styleUrl: './crud.css',
+  selector: 'app-virtual-scrolling',
+  imports: [FormsModule,CommonModule,SearchUserPipePipe,ScrollingModule],
+  templateUrl: './virtual-scrolling.html',
+  styleUrl: './virtual-scrolling.css'
 })
-export class CRUD implements OnInit, OnDestroy {
-  searchTerm: string = '';
+export class VirtualScrolling {
+searchTerm: string = '';
   subscription!: Subscription;
   UserData: Iuser[] = [];
   page: number = 1;
@@ -50,29 +50,7 @@ export class CRUD implements OnInit, OnDestroy {
       },
     });
   }
-  // getAllUserData() {
-  //   this.subscription = this.crud.getUserData().subscribe({
-  //     next: (res) => {
-  //       this.UserData = res;
-  //       localStorage.setItem('Users', JSON.stringify(this.UserData));
-  //     },
-  //     error: (error) => {
-  //       console.error('Error Fetching Data', error);
-  //       alert('Failed to Fetch user Data... Please try again later.');
-  //     },
-  //   });
-  // }
-  // ondelete(id: number) {
-  //   this.crud.deleteUserById(id).subscribe({
-  //     next: () => {
-  //       this.getAllUserData();
-  //     },
-  //     error: (error) => {
-  //       console.error('Error deleting user:', error);
-  //       alert('Failed to delete user. Please try again later.');
-  //     },
-  //   });
-  // }
+
   addNewUser() {
     this.route.navigateByUrl('adduser');
   }

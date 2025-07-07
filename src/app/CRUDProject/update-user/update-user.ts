@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Crudservice } from '../../Services/crudservice';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { take } from 'rxjs';
+import {  take } from 'rxjs';
+import { Iuser } from '../../Interface/iuser';
 
 @Component({
   selector: 'app-update-user',
@@ -33,9 +34,8 @@ export class UpdateUser implements OnInit {
     this.userId = {
       uid: this.activeRoute.snapshot.params['id'],
     };
-    console.log(this.userId.uid);
-    this.crud
-      .getUserById(this.userId.uid)
+    this.crud.
+      request<Iuser>('GET',`/${this.userId.uid}`)
       .pipe(take(1))
       .subscribe({
         next: (res) => {
@@ -46,27 +46,32 @@ export class UpdateUser implements OnInit {
             username: this.userData.username,
             email: this.userData.email,
           });
-        },
-        error:(error)=>{
-          console.error("Failed to Load the User");
-          
         }
       });
   }
 
-  onSubmit() {
+    onSubmit() {
     this.crud
-      .updateUserById(this.userId.uid, this.updateUserFrom.value)
+      .request<Iuser>('PUT', `/${this.userId.uid}`, this.updateUserFrom.value)
       .subscribe({
         next: () => {
           this.route.navigateByUrl('crud');
-        },
-        error: (error) => {
-          console.error(error);
-          alert('Updation Issue. Please try again later');
-        },
+        }
       });
   }
+  // onSubmit() {
+  //   this.crud
+  //     .updateUserById(this.userId.uid, this.updateUserFrom.value)
+  //     .subscribe({
+  //       next: () => {
+  //         this.route.navigateByUrl('crud');
+  //       },
+  //       error: (error) => {
+  //         console.error(error);
+  //         alert('Updation Issue. Please try again later');
+  //       },
+  //     });
+  // }
 
   cancel() {
     this.route.navigateByUrl('crud');

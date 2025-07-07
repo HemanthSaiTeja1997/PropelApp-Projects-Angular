@@ -1,13 +1,41 @@
-.horizontal-list {
+.main-container {
   display: flex;
-  list-style: none; /* removes default bullets */
-  padding: 0;
-  margin: 0;
-  gap: 20px; /* optional: spacing between items */
+  height: 100vh;
 }
 
-.active{
-  font-weight:  bolder;
-  font-family: 'Courier New', Courier, monospace;
+.container-left {
+  width: 20%;
+  background-color: #242323;
+  padding: 10px 15px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-right {
+  width: 80%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Side nav list */
+.horizontal-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+/* Links style */
+.horizontal-list a {
+  text-decoration: none;
+  color: #f5e9e9;
+  font-size: 16px;
+}
+
+
+.horizontal-list a.active {
   color: olivedrab;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
 }
